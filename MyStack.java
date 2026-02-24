@@ -8,24 +8,32 @@ public class MyStack {
     }
 
     public void push(int value){
-        if(this.top == this.arr.length){
-            System.out.println("Stach is Full");
+        if(isFull()){
+            System.out.println("Stack is Full");
             return;
         }
         this.arr[++this.top] = value;
     }
 
     public int pop(){
-        if(this.top == -1){
+        if(isEmpty()){
             return -1;
         }
         return this.arr[this.top--];
     }
 
     public void peek(){
-        if(this.top == -1){
+        if(isEmpty()){
             return;
         }
         System.out.println(this.arr[this.top]);
+    }
+
+    public boolean isEmpty(){
+        return (this.top == -1);
+    }
+
+    public boolean isFull(){
+        return (this.top == (this.arr.length - 1));
     }
 }
